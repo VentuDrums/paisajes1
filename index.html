@@ -27,7 +27,7 @@
             color: #00ffff;
             text-shadow: 0 0 5px #00ffff, 0 0 10px #00aaff;
             box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 0 15px rgba(0, 255, 255, 0.2);
-            border: 6px solid #8b6508;
+            border: 4px solid #8b6508;
             position: relative;
             overflow: hidden;
         }
@@ -51,7 +51,7 @@
             border: 2px solid #3e2412;
             color: #2a1b0a;
             text-shadow: 0 1px 1px rgba(255,255,255,0.3);
-            box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 6px 0 #3e2412, 0 8px 10px rgba(0,0,0,0.5);
+            box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 4px 0 #3e2412, 0 6px 8px rgba(0,0,0,0.5);
             transition: all 0.1s;
             font-weight: bold;
             text-transform: uppercase;
@@ -59,7 +59,7 @@
         }
         
         .btn-brass:active {
-            transform: translateY(6px);
+            transform: translateY(4px);
             box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 0px 0 #3e2412, 0 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -67,13 +67,13 @@
             background: linear-gradient(180deg, #8b0000 0%, #4a0000 100%);
             border: 2px solid #8b6508;
             color: #ffcccc;
-            box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 6px 0 #2a0000, 0 8px 10px rgba(0,0,0,0.5);
+            box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 4px 0 #2a0000, 0 6px 8px rgba(0,0,0,0.5);
             transition: all 0.1s;
             cursor: pointer;
         }
         
         .btn-play:active {
-            transform: translateY(6px);
+            transform: translateY(4px);
             box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 0px 0 #2a0000;
         }
 
@@ -82,8 +82,8 @@
         }
 
         @keyframes tubePulse {
-            0% { box-shadow: 0 0 15px #a855f7, inset 0 0 15px #a855f7; filter: brightness(1); }
-            100% { box-shadow: 0 0 25px #d8b4fe, inset 0 0 25px #d8b4fe; filter: brightness(1.2); }
+            0% { box-shadow: 0 0 10px #a855f7, inset 0 0 10px #a855f7; filter: brightness(1); }
+            100% { box-shadow: 0 0 20px #d8b4fe, inset 0 0 20px #d8b4fe; filter: brightness(1.2); }
         }
 
         .waveform {
@@ -91,7 +91,7 @@
             bottom: 10%;
             left: 0;
             width: 200%;
-            height: 50px;
+            height: 40px;
             opacity: 0.5;
             pointer-events: none;
             z-index: 1;
@@ -113,7 +113,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 10px;
+            height: 8px;
             background: rgba(0, 255, 255, 0.2);
             opacity: 0.6;
             animation: scanline 4s linear infinite;
@@ -121,39 +121,40 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 pt-32 pb-16 overflow-x-hidden overflow-y-auto">
+<!-- Ajuste general de padding (pt-20 en lugar de pt-32) -->
+<body class="min-h-screen flex items-center justify-center p-4 pt-20 pb-8 overflow-x-hidden overflow-y-auto">
 
-    <!-- Contenedor Principal de la Radio -->
-    <div class="max-w-3xl w-full radio-casing rounded-3xl border-[10px] p-6 md:p-10 relative z-10 my-auto">
+    <!-- Contenedor Principal: max-w-xl (más pequeño que max-w-3xl), bordes y p-4/p-6 reducidos -->
+    <div class="max-w-xl w-full radio-casing rounded-3xl border-8 p-4 md:p-6 relative z-10 my-auto">
         
-        <!-- Tubos de vacío (Estilo Steampunk/Mágico) -->
-        <div class="absolute -top-24 left-1/2 -translate-x-1/2 flex gap-6 z-[-1] items-end">
-            <div class="w-10 h-20 rounded-t-full bg-purple-900/60 border-4 border-zinc-500 tube-glow relative overflow-hidden flex justify-center items-end pb-2 backdrop-blur-sm">
-                <div class="w-3 h-12 bg-orange-400/90 blur-[3px] rounded-full"></div>
+        <!-- Tubos de vacío (Tamaño escalado hacia abajo) -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-4 z-[-1] items-end">
+            <div class="w-8 h-16 rounded-t-full bg-purple-900/60 border-2 border-zinc-500 tube-glow relative overflow-hidden flex justify-center items-end pb-1.5 backdrop-blur-sm">
+                <div class="w-2 h-10 bg-orange-400/90 blur-[2px] rounded-full"></div>
             </div>
-            <div class="w-14 h-28 rounded-t-full bg-blue-900/60 border-4 border-zinc-400 tube-glow relative overflow-hidden flex justify-center items-end pb-2 backdrop-blur-sm" style="animation-delay: 0.5s">
-                <div class="w-4 h-16 bg-cyan-400/90 blur-[3px] rounded-full"></div>
+            <div class="w-10 h-20 rounded-t-full bg-blue-900/60 border-2 border-zinc-400 tube-glow relative overflow-hidden flex justify-center items-end pb-1.5 backdrop-blur-sm" style="animation-delay: 0.5s">
+                <div class="w-3 h-14 bg-cyan-400/90 blur-[2px] rounded-full"></div>
             </div>
-            <div class="w-10 h-20 rounded-t-full bg-purple-900/60 border-4 border-zinc-500 tube-glow relative overflow-hidden flex justify-center items-end pb-2 backdrop-blur-sm" style="animation-delay: 0.2s">
-                <div class="w-3 h-12 bg-orange-400/90 blur-[3px] rounded-full"></div>
+            <div class="w-8 h-16 rounded-t-full bg-purple-900/60 border-2 border-zinc-500 tube-glow relative overflow-hidden flex justify-center items-end pb-1.5 backdrop-blur-sm" style="animation-delay: 0.2s">
+                <div class="w-2 h-10 bg-orange-400/90 blur-[2px] rounded-full"></div>
             </div>
         </div>
 
-        <!-- Elementos decorativos (Engranajes/Tornillos dorados) -->
-        <div class="absolute top-4 left-4 w-5 h-5 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] rotate-45"></div></div>
-        <div class="absolute top-4 right-4 w-5 h-5 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] -rotate-45"></div></div>
-        <div class="absolute bottom-4 left-4 w-5 h-5 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] -rotate-45"></div></div>
-        <div class="absolute bottom-4 right-4 w-5 h-5 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] rotate-45"></div></div>
+        <!-- Elementos decorativos (Tornillos más pequeños) -->
+        <div class="absolute top-3 left-3 w-4 h-4 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] rotate-45"></div></div>
+        <div class="absolute top-3 right-3 w-4 h-4 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] -rotate-45"></div></div>
+        <div class="absolute bottom-3 left-3 w-4 h-4 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] -rotate-45"></div></div>
+        <div class="absolute bottom-3 right-3 w-4 h-4 rounded-full bg-[#8b6508] border-2 border-[#3e2412] shadow-inner flex items-center justify-center"><div class="w-full h-0.5 bg-[#3e2412] rotate-45"></div></div>
 
         <!-- Título -->
-        <div class="text-center mb-8 relative">
-            <div class="bg-[#1a0f05] px-6 py-2 border-2 border-[#8b6508] rounded shadow-inner inline-block">
-                <h1 style="font-family: 'Cinzel', serif;" class="text-2xl md:text-3xl font-bold text-[#d4af37] tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">Transmisor Arcano</h1>
+        <div class="text-center mb-5 relative">
+            <div class="bg-[#1a0f05] px-4 py-1.5 border-2 border-[#8b6508] rounded shadow-inner inline-block">
+                <h1 style="font-family: 'Cinzel', serif;" class="text-xl md:text-2xl font-bold text-[#d4af37] tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">Transmisor Arcano</h1>
             </div>
         </div>
 
-        <!-- Pantalla LCD / CRT -->
-        <div class="crt-screen rounded-xl p-6 mb-10 h-52 flex flex-col justify-center items-center text-center relative">
+        <!-- Pantalla LCD / CRT (Reducción de altura a h-36 y márgenes menores) -->
+        <div class="crt-screen rounded-lg p-4 mb-6 h-36 flex flex-col justify-center items-center text-center relative">
             <div class="scanline-effect"></div>
             
             <!-- Ondas visuales falsas -->
@@ -168,60 +169,60 @@
             <div class="z-10 w-full">
                 <!-- Pantalla de Inicio -->
                 <div id="screen-start" class="block">
-                    <p class="text-xl mb-2">BÚNKER DE LOS VIENTOS</p>
-                    <p class="text-sm opacity-80 animate-pulse">ESPERANDO RESONANCIA...</p>
+                    <p class="text-lg mb-1">BÚNKER DE LOS VIENTOS</p>
+                    <p class="text-xs opacity-80 animate-pulse">ESPERANDO RESONANCIA...</p>
                 </div>
 
                 <!-- Pantalla de Juego -->
                 <div id="screen-game" class="hidden w-full">
-                    <div class="flex justify-between w-full text-xs mb-2 opacity-70">
+                    <div class="flex justify-between w-full text-[10px] md:text-xs mb-1 opacity-70">
                         <span>SINTONÍA: <span id="freq-display">84.2</span> Tms</span>
                         <span>ENERGÍA: <span id="lives-display" class="text-red-400 tracking-widest">███</span></span>
                         <span>ENLACES: <span id="progress-display">0</span>/7</span>
                     </div>
-                    <p id="instrument-name" class="text-3xl font-bold my-4 opacity-0 transition-opacity duration-500">???</p>
-                    <p id="feedback-message" class="text-sm h-5"></p>
+                    <p id="instrument-name" class="text-xl md:text-2xl font-bold my-2 opacity-0 transition-opacity duration-500">???</p>
+                    <p id="feedback-message" class="text-[10px] md:text-xs h-4"></p>
                 </div>
 
                 <!-- Pantalla de Victoria -->
                 <div id="screen-win" class="hidden">
-                    <p class="text-lg mb-2">¡SEÑAL DECODIFICADA!</p>
-                    <p class="text-sm opacity-80 mb-2">PRIMER DÍGITO DEL CÓDIGO:</p>
-                    <p class="text-5xl font-bold text-white drop-shadow-[0_0_15px_#00ffff] animate-pulse">4</p>
+                    <p class="text-base mb-1">¡SEÑAL DECODIFICADA!</p>
+                    <p class="text-[10px] md:text-xs opacity-80 mb-1">PRIMER DÍGITO DEL CÓDIGO:</p>
+                    <p class="text-3xl md:text-4xl font-bold text-white drop-shadow-[0_0_15px_#00ffff] animate-pulse">4</p>
                 </div>
 
                 <!-- Pantalla de Derrota (Game Over) -->
                 <div id="screen-gameover" class="hidden">
-                    <p class="text-xl mb-2 text-red-500 drop-shadow-[0_0_8px_#ef4444]">CONEXIÓN PERDIDA</p>
-                    <p class="text-sm opacity-80 mb-4">El artefacto se quedó sin energía.</p>
-                    <button onclick="resetGame()" class="bg-[#3e2412] hover:bg-[#8b6508] text-[#d4af37] border border-[#8b6508] px-4 py-2 rounded font-bold text-sm transition-colors uppercase">Reintentar Sintonía</button>
+                    <p class="text-base md:text-lg mb-1 text-red-500 drop-shadow-[0_0_8px_#ef4444]">CONEXIÓN PERDIDA</p>
+                    <p class="text-[10px] md:text-xs opacity-80 mb-3">El artefacto se quedó sin energía.</p>
+                    <button onclick="resetGame()" class="bg-[#3e2412] hover:bg-[#8b6508] text-[#d4af37] border border-[#8b6508] px-3 py-1 rounded font-bold text-[10px] md:text-xs transition-colors uppercase">Reintentar</button>
                 </div>
             </div>
         </div>
 
-        <!-- Controles de Interacción -->
-        <div id="controls-container" class="space-y-8 bg-black/40 p-6 rounded-2xl border-t border-[#8b6508]/30 shadow-inner">
+        <!-- Controles de Interacción (Reducción de espacio y p-4) -->
+        <div id="controls-container" class="space-y-4 bg-black/40 p-4 rounded-xl border-t border-[#8b6508]/30 shadow-inner">
             
             <!-- Botón de Inicio / Reproducción -->
             <div class="flex justify-center">
-                <button id="btn-action" class="btn-play font-bold py-4 px-10 rounded-full text-lg flex items-center gap-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <button id="btn-action" class="btn-play font-bold py-2.5 px-6 rounded-full text-sm md:text-base flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                     <span id="btn-action-text">Activar Artefacto</span>
                 </button>
             </div>
 
-            <!-- Panel de Familias (Oculto al inicio) -->
-            <div id="families-panel" class="grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50 pointer-events-none transition-opacity duration-300">
-                <button class="btn-brass py-3 px-2 rounded-xl text-xs md:text-sm" onclick="checkAnswer('viento-madera')">
+            <!-- Panel de Familias (Botones más pequeños con gap-2) -->
+            <div id="families-panel" class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 opacity-50 pointer-events-none transition-opacity duration-300">
+                <button class="btn-brass py-2 px-1 rounded-lg text-[10px] md:text-xs" onclick="checkAnswer('viento-madera')">
                     Viento-Madera
                 </button>
-                <button class="btn-brass py-3 px-2 rounded-xl text-xs md:text-sm" onclick="checkAnswer('viento-metal')">
+                <button class="btn-brass py-2 px-1 rounded-lg text-[10px] md:text-xs" onclick="checkAnswer('viento-metal')">
                     Viento-Metal
                 </button>
-                <button class="btn-brass py-3 px-2 rounded-xl text-xs md:text-sm" onclick="checkAnswer('cuerda-frotada')">
+                <button class="btn-brass py-2 px-1 rounded-lg text-[10px] md:text-xs" onclick="checkAnswer('cuerda-frotada')">
                     Cuerda Frotada
                 </button>
-                <button class="btn-brass py-3 px-2 rounded-xl text-xs md:text-sm" onclick="checkAnswer('percusion')">
+                <button class="btn-brass py-2 px-1 rounded-lg text-[10px] md:text-xs" onclick="checkAnswer('percusion')">
                     Percusión
                 </button>
             </div>
@@ -539,7 +540,7 @@
                 currentRound++;
                 progressDisplay.innerText = currentRound;
                 feedbackMessageEl.innerText = "¡ENLACE ESTABLECIDO!";
-                feedbackMessageEl.className = "text-sm h-5 text-green-300 font-bold";
+                feedbackMessageEl.className = "text-[10px] md:text-xs h-4 text-green-300 font-bold";
                 
                 currentInstrument = null; // Bloquear hasta siguiente ronda
                 
@@ -555,7 +556,7 @@
                 
                 if (lives > 0) {
                     feedbackMessageEl.innerText = "ERROR DE SINTONÍA.";
-                    feedbackMessageEl.className = "text-sm h-5 text-red-400 font-bold";
+                    feedbackMessageEl.className = "text-[10px] md:text-xs h-4 text-red-400 font-bold";
                     
                     // Efecto de fallo visual en la pantalla
                     document.querySelector('.crt-screen').style.color = '#ef4444';
